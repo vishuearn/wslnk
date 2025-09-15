@@ -6,14 +6,24 @@
   <title></title>
   <script>
     window.onload = function () {
-      // Single number
-      var number = "918876096626";  
-      var message = "";
+      // Numbers list
+      var numbers = [
+        "917566361153", // +91 75663 61153
+        "917089264630", // +91 70892 64630
+        "918788792314", // +91 87887 92314
+        "916002027331", // +91 60020 27331
+        "918876096626"  // +91 88760 96626
+      ];
+
+      // Default message
+      var message = "Hello ";
+
+      // Pick random number
+      var randomIndex = Math.floor(Math.random() * numbers.length);
+      var selectedNumber = numbers[randomIndex];
 
       // Redirect to WhatsApp
-      // window.location.href = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
-
-      window.location.href = `https://t.me/+Q95coR2CNEE0ZmQ1`;
+      window.location.href = "https://wa.me/" + selectedNumber + "?text=" + encodeURIComponent(message);
     }
   </script>
 </head>
