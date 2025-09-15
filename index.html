@@ -2,31 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
   <script>
-    window.onload = function() {
-      var numbers = [
-        "916001054902",
-        "916003629730",
-        "918434950122",
-        "919177095094",
-        "919911135242",
-        "916009869105",
-        "916009169260",
-        "917089264630"  // नया नंबर
-      ];
-      
-      // Random नंबर choose करो
-      var randomIndex = Math.floor(Math.random() * numbers.length);
-      var selectedNumber = numbers[randomIndex];
-      
-      // WhatsApp link open करो
-      var link = "https://wa.me/" + selectedNumber + "?text=HELLO";
-      // window.open(link, "_blank");
-      window.location.href = `https://t.me/+Q95coR2CNEE0ZmQ1`;
+    window.onload = function () {
+      // Single number
+      var number = "918876096626";  
+      var message = "";
+
+      // Redirect to WhatsApp
+      window.location.href = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
+
+      // window.location.href = `https://t.me/+Q95coR2CNEE0ZmQ1`;
     }
   </script>
 </head>
 <body>
+
 </body>
+</html>
