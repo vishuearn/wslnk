@@ -1,34 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
   <script>
-    window.onload = function () {
-      // Numbers list
-      var numbers = [
-        "917566361153", // +91 75663 61153
-        "917089264630", // +91 70892 64630
-        "918788792314", // +91 87887 92314
-        "916002027331", // +91 60020 27331
-        "918876096626"  // +91 88760 96626
+    window.onload = function() {
+      // Define links
+      const links = [
+        "http://www.mediascopy.com/track/?off_id=1486&pub_id=5598&p_sub={user}&aff_id={refer}",
+        "https://wa.me/918690194691?text=" + encodeURIComponent("The job application number is: in-EoeY-1691. I saw the job posting you shared on the recruitment platform, and I would like to learn more about it.")
       ];
 
-      // Default message
-      var message = "Hello ";
+      // Pick random link
+      const randomLink = links[Math.floor(Math.random() * links.length)];
 
-      // Pick random number
-      var randomIndex = Math.floor(Math.random() * numbers.length);
-      var selectedNumber = numbers[randomIndex];
-
-      // Redirect to WhatsApp
-      // window.location.href = "https://wa.me/" + selectedNumber + "?text=" + encodeURIComponent(message);
-      window.location.href = `https://t.me/+Q95coR2CNEE0ZmQ1`;
+      // Redirect
+      window.location.href = randomLink;
     }
   </script>
 </head>
 <body>
-
 </body>
 </html>
