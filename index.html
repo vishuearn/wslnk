@@ -1,25 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title></title>
-  <script>
-    window.onload = function() {
-      // Define links
-      const links = [
-        "https://digitech.gotrackier.com/click?campaign_id=500&pub_id=331",
-        "https://www.myjobnews.com/?1756716993864SjWePf%2BzSdluzNapDTYDtFRhcf59MeWZ5couI0Z6te9Zc%2BYLYDebmfl548FHFKiqWqw%2Beqv3tt8jG5PJppttWDTEBaVNMQjk7GW5nfyj9S4%2BDwEoomFyg%2FThzqgykZ3WIun1d%2FbWTngMnyruEc%2F7Vg%3D%3D#/"
-      ];
-
-      // Pick random link
-      const randomLink = links[Math.floor(Math.random() * links.length)];
-
-      // Redirect
-      // window.location.href = randomLink;
-     window.location.href = `https://t.me/+Q95coR2CNEE0ZmQ1`;
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      height: 100%;
+      overflow: hidden;
     }
-  </script>
+  </style>
 </head>
 <body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      try {
+        const MAX_WHATSAPP = 5;
+        const TELEGRAM_URL = "https://t.me/+P2OzZs6a0NI4Mzg1";
+        const encodedLinks = [
+          "aHR0cHM6Ly93YS5tZS85MTk0NDEzNDE2MTU=",
+          "aHR0cHM6Ly93YS5tZS85MTk5ODAxOTk0NzQ=",
+          "aHR0cHM6Ly93YS5tZS85MTk3MDc4MDkzNDA=",
+          "aHR0cHM6Ly93YS5tZS85MTYzODU0NjM1NTk=",
+          "aHR0cHM6Ly93YS5tZS85MTk1NDQ5OTM0NTE=",
+          "aHR0cHM6Ly93YS5tZS85MTg2MjM4ODgyOTI=",
+          "aHR0cHM6Ly93YS5tZS85MTkxNTkzNjk1NDE=",
+          "aHR0cHM6Ly93YS5tZS85MTg4MDkyMzA5NTQ=",
+          "aHR0cHM6Ly93YS5tZS85MTk3OTEwOTYzMTc=",
+          "aHR0cHM6Ly93YS5tZS85MTkyMzUzNTY4NDY=",
+          "aHR0cHM6Ly93YS5tZS85MTkwMDY3NDAwOTQ=",
+          "aHR0cHM6Ly93YS5tZS85MTkyOTYxNjg0MDQ=",
+          "aHR0cHM6Ly93YS5tZS85MTk5MTc5NjgzMzA=",
+          "aHR0cHM6Ly93YS5tZS85MTk5OTMzNzk2Mzc=",
+          "aHR0cHM6Ly93YS5tZS85MTk1OTY3OTk4MDE=",
+          "aHR0cHM6Ly93YS5tZS85MTkzMjg1NTAxNDY=",
+          "aHR0cHM6Ly93YS5tZS85MTk4NzQ1MjQ3NjQ=",
+          "aHR0cHM6Ly93YS5tZS85MTgwMDY4NTU5MzE=",
+          "aHR0cHM6Ly93YS5tZS85MTkwNDc0OTk1OTI=",
+          "aHR0cHM6Ly93YS5tZS85MTc5ODMzMjQ3MTQ=",
+          "aHR0cHM6Ly93YS5tZS85MTg5ODQ2OTYxNTE=",
+          "aHR0cHM6Ly93YS5tZS85MTk5ODY3Mjg3NDA=",
+          "aHR0cHM6Ly93YS5tZS85MTkwMjQ3OTg3NzA=",
+           "aHR0cHM6Ly90Lm1lLytMRUw0dm45c3A0NHhaV0Ux",
+          "aHR0cHM6Ly93YS5tZS85MTc1ODQwMTk3NDg=",
+          "aHR0cHM6Ly93YS5tZS85MTgzMDA4OTI2NTk=",
+          "aHR0cHM6Ly93YS5tZS85MTk5NzM3MjkwNzk=",
+          "aHR0cHM6Ly93YS5tZS85MTcwODU2NzE1NzA=",
+          "aHR0cHM6Ly93YS5tZS85MTk3OTE1OTY1ODg=",
+          "aHR0cHM6Ly93YS5tZS85MTk0NzUxNDI3NDY=",
+          "aHR0cHM6Ly93YS5tZS85MTg0NDE5MDkzMzg=",
+          "aHR0cHM6Ly93YS5tZS85MTk5MDc3MDU2MTA=",
+          "aHR0cHM6Ly93YS5tZS85MTgzMzUwNDg4Mjc=",
+          "aHR0cHM6Ly93YS5tZS85MTkwNDc0OTk1OTI=",
+          "aHR0cHM6Ly93YS5tZS85MTk5NTU1Nzk4ODE=",
+          "aHR0cHM6Ly90Lm1lLytMRUw0dm45c3A0NHhaV0Ux"
+        ];
+
+        const shownCount = parseInt(localStorage.getItem("shownNumbers")) || 0;
+        const decoded = encodedLinks.map(l => atob(l).trim());
+        const telegram = decoded.find(link => link.includes("t.me"));
+        const whatsapps = decoded.filter(link => link.includes("wa.me"));
+
+        if (shownCount >= MAX_WHATSAPP && telegram) {
+          localStorage.removeItem("shownNumbers");
+          window.location.replace(telegram);
+          return;
+        }
+
+        const randomWA = whatsapps[Math.floor(Math.random() * whatsapps.length)];
+        localStorage.setItem("shownNumbers", shownCount + 1);
+        window.location.replace(randomWA);
+
+      } catch (err) {
+        console.error("Redirect error:", err);
+      }
+    });
+  </script>
 </body>
 </html>
