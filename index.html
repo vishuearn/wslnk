@@ -1,56 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title></title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #fff;
-      height: 100%;
-      overflow: hidden;
-    }
-  </style>
+<meta charset="UTF-8">
+<title></title>
 </head>
 <body>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      try {
-        const MAX_WHATSAPP = 5;
-        const TELEGRAM_URL = "https://t.me/+P2OzZs6a0NI4Mzg1";
-        const encodedLinks = [
-          "aHR0cHM6Ly93YS5tZS85MTk2OTk4NDE1Mjc=",
-          "aHR0cHM6Ly93YS5tZS85MTYyOTkzNzI2OTQ=",
-          "aHR0cHM6Ly93YS5tZS85MTk2MDgwOTYxNjU=",
-          "aHR0cHM6Ly93YS5tZS85MTg5NjIwNjIxOTY=",
-          "aHR0cHM6Ly93YS5tZS85MTgwODAxNjk5Nzk=",
-          "aHR0cHM6Ly93YS5tZS85MTkzOTcwMTE2MTI=",
-          "aHR0cHM6Ly93YS5tZS85MTc3MDk1OTMxNjk=",
-          "aHR0cHM6Ly93YS5tZS85MTc0OTg5MTIyMDM=",
-          "aHR0cHM6Ly90Lm1lLytMRUw0dm45c3A0NHhaV0Ux"
-        ];
 
-        const shownCount = parseInt(localStorage.getItem("shownNumbers")) || 0;
-        const decoded = encodedLinks.map(l => atob(l).trim());
-        const telegram = decoded.find(link => link.includes("t.me"));
-        const whatsapps = decoded.filter(link => link.includes("wa.me"));
+<script>
+// ===== CONFIG =====
+const COOKIE_NAME = "wa_redirect_number";
+const COOKIE_TIME_MIN = 5;
 
-        if (shownCount >= MAX_WHATSAPP && telegram) {
-          localStorage.removeItem("shownNumbers");
-          window.location.replace(telegram);
-          return;
-        }
+// Numbers list
+const numbers = [
+  "919573662002",
+  "917993732520",
+  "919791285997",
+  "919591653787",
+  "919059941743",
+  "919187142511",
+  "917022938408",
+  "919945659294",
+  "918930379570",
+  "919535762733",
+  "917760839772",
+  "919131586716",
+  "917793986950"
+];
 
-        const randomWA = whatsapps[Math.floor(Math.random() * whatsapps.length)];
-        localStorage.setItem("shownNumbers", shownCount + 1);
-        window.location.replace(randomWA);
+// ===== COOKIE FUNCTIONS =====
+function setCookie(name, value, minutes) {
+  const d = new Date();
+  d.setTime(d.getTime() + (minutes * 60 * 1000));
+  document.cookie = `${name}=${value};expires=${d.toUTCString()};path=/`;
+}
 
-      } catch (err) {
-        console.error("Redirect error:", err);
-      }
-    });
-  </script>
+function getCookie(name) {
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  return match ? match[2] : null;
+}
+
+// ===== LOGIC =====
+let selectedNumber = getCookie(COOKIE_NAME);
+
+if (!selectedNumber) {
+  selectedNumber = numbers[Math.floor(Math.random() * numbers.length)];
+  setCookie(COOKIE_NAME, selectedNumber, COOKIE_TIME_MIN);
+}
+
+// Redirect
+const msg = encodeURIComponent("Hello");
+window.location.href = `https://wa.me/${selectedNumber}?text=${msg}`;
+</script>
+
 </body>
 </html>
